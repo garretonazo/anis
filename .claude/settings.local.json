@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:/Users/mrami/VScode Projects/Anis\" && npm install 2>&1)"
+    ]
+  }
+}

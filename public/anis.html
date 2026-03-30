@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <main class="container page">
+    <div class="top-nav">
+      <a href="/" class="top-nav-link">Lecturas</a>
+      <a href="/anis" class="top-nav-link active">Archivos</a>
+    </div>
+
+    <div class="anis-page">
+
+      <h1>Archivos</h1>
+      <p>Puedes subir lo que me quieras compartir, también subiré cosas.</p>
+
+      <!-- Zona de upload -->
+      <div class="upload-zone" id="upload-zone">
+        <div class="upload-icon">📎</div>
+        <strong>Arrastra lo que quieras</strong>
+        <p>PDF, imágenes, texto — máx. 50 MB</p>
+        <input type="file" id="file-input" style="display:none" />
+      </div>
+
+      <!-- Formulario de subida -->
+      <div class="upload-form" id="upload-form" style="display:none">
+        <div>
+          <label style="font-size:.8rem;color:var(--text-muted);display:block;margin-bottom:4px">
+            Archivo seleccionado
+          </label>
+          <input type="text" id="file-name-display" disabled />
+        </div>
+        <div>
+          <label style="font-size:.8rem;color:var(--text-muted);display:block;margin-bottom:4px">
+            Descripción o mensaje (opcional)
+          </label>
+          <input type="text" id="file-description" placeholder="Ej: Te recomiendo este cuento de..." />
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="cancel-upload">Cancelar</button>
+          <button class="btn btn-primary" id="confirm-upload">Subir archivo</button>
+        </div>
+      </div>
+
+      <!-- Lista de archivos -->
+      <p class="section-title" style="margin-top:0">Archivos subidos</p>
+      <div class="files-list" id="files-list">
+        <div class="loading">Cargando...</div>
+      </div>
+
+    </div>
+  </main>
+
+  <script type="module" src="/js/anis.js"></script>
+</body>
+</html>
