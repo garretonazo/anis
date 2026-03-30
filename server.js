@@ -1,8 +1,12 @@
 const express = require('express');
 const path = require('path');
 const crypto = require('crypto');
+const fs = require('fs');
 const multer = require('multer');
 const db = require('./db');
+
+// Ensure uploads directory exists
+fs.mkdirSync(path.join(__dirname, 'public/uploads'), { recursive: true });
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -142,7 +146,6 @@ app.delete('/api/uploads/:id', requireAuth, (req, res) => {
   const record = db.prepare('SELECT * FROM uploads WHERE id = ?').get(req.params.id);
   if (!record) return res.status(404).json({ error: 'Archivo no encontrado' });
 
-  const fs = require('fs');
   const filePath = path.join(__dirname, 'public/uploads', record.filename);
   if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
 
